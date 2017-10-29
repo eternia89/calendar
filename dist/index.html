@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Calendar</title>
+        <meta name="description" content="calendar">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="vue">
+            <header>
+                <h1>{{ header.label }}</h1>
+                <nav>
+                    <a href="#" class="nav--prev" @click='movePreviousMonth'><i class="mi">arrow_backward</i></a>
+                    <a href="#" class="nav--current" @click='moveThisMonth'>Current Month</a>
+                    <a href="#" class="nav--next" @click='moveNextMonth'><i class="mi">arrow_forward</i></a>
+                </nav>
+            </header>
+            <div class="cal__wrapper">
+                <div class="cal__header">
+                    <div class="cal__header__col" v-for='weekday in weekdays'>{{ weekday.label }}</div>
+                </div>
+                <div class="cal__content">
+                    <div class="cal__week" v-for='week in weeks'>
+                        <div class="cal__col" :class='{ today: day.isToday }' v-for='day in week'>
+                            <div class="cal__content__title">{{ day.label }}</div>  
+                            <div class="cal__event" v-if="day.label == 10">
+                                <div class="cal__event__title">Title of The Event</div>
+                                <div class="cal__event__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, eaque.</div>
+                                <div class="cal__event__time">03:00 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>

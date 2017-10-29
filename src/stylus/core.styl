@@ -1,0 +1,78 @@
+@import 'modules/breakpoint'
+@import 'modules/fonts'
+@import 'normalize'
+@import 'main'
+
+@import 'vendor/material'
+
+header
+	display flex
+	align-items center
+	padding 0 20px
+	h1
+		width 300px
+.cal__wrapper
+	padding 0 20px
+nav
+	margin-left auto
+	display flex
+	align-items center
+	justify-content center
+	flex-grow 0
+	line-height 0
+	a
+		width 24px
+		&:hover
+			background #eee
+	.nav--current
+		width 200px
+		text-align center
+.cal__header
+	display flex
+.cal__header__col
+	flex 0 0 calc(100%/7)
+	background #eee
+	font-size 12px
+	padding 5px 10px
+	width calc(100%/7)
+	max-width calc(100%/7)
+.cal__week
+	display flex
+	border-left 1px solid #ddd
+.cal__col
+	flex 0 0 calc(100%/7)
+	border-right 1px solid #ddd
+	border-bottom 1px solid #ddd
+	height 15vh
+	padding 10px
+	width calc(100%/7)
+	max-width calc(100%/7)
+.cal__event__desc
+	font-size 11px
+	color #666
+	margin 5px 0
+	overflow hidden
+	text-overflow ellipsis
+	width 100%
+	white-space nowrap
+.cal__event__title
+	font-weight bold
+
++break(mobile)
+	header
+		display block
+	nav
+		padding-bottom 30px
+	.cal__header
+		display none
+	.cal__content
+		border-top 1px solid #ddd
+	.cal__week
+		display block
+	.cal__content__title
+		font-size 20px
+		font-weight bold
+	.cal__col
+		width 100%
+		max-width 100%
+		height auto
